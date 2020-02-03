@@ -9,6 +9,7 @@ ADD start-convoy.sh /start-convoy.sh
 ADD create-backup.sh /create-backup.sh
 ADD cleanup-old-backups.sh /cleanup-old-backups.sh
 ADD backup-all.sh /backup-all.sh
+ADD config.cfg /var/lib/rancher/convoy/convoy.cfg
 
 RUN wget -q "https://github.com/rancher/convoy/releases/download/v0.5.2/convoy.tar.gz" \
 	&& tar zxvpf convoy.tar.gz \

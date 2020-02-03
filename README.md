@@ -15,7 +15,7 @@ Building the Docker image:
 ```
 git clone <url-to-convoy-daemon-in-docker>
 cd convoy-daemon
-docker build -t losty/convoy-daemon:0.5.2-5 .
+docker build -t losty/convoy-daemon:0.5.2-6 .
 ```
 
 You should have some backup target volume present. I mount this from some Diskstation in case my local HDD will die. I placed my backup schedule as crontab directly there:
@@ -41,7 +41,7 @@ docker run --detach \
     --volume /var/lib/docker/volumes:/var/lib/docker/volumes \
     --mount 'type=volume,src=convoy-backup-mount,dst=/mnt/backup,volume-driver=local,volume-opt=type=nfs,volume-opt=device=diskstation:/volume1/backup-convoy,"volume-opt=o=addr=10.41.42.11,vers=4,rw"' \
     --env CRONTAB_FILE=/mnt/backup/backup.crontab \
-    convoy-daemon:0.5.2-5
+    convoy-daemon:0.5.2-6
 ```
 
 I recommend building some fancy shortcut:
@@ -100,3 +100,4 @@ More Info
 - https://rancher.com/docs/os/v1.1/en/system-services/custom-system-services/#service-cron
 - http://rancher.com/using-convoy-to-backup-and-recover-a-wordpress-mysql-database-with-docker/#more-2604
 - https://stackoverflow.com/questions/23935141/how-to-copy-docker-images-from-one-host-to-another-without-via-repository
+- https://github.com/rancher/convoy/issues/210
